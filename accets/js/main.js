@@ -33,11 +33,11 @@ $(document).ready(function(){
 
   $(window).resize();
 
-  $("#nav__search").on("click", function(event){
+  $("#hamburger").on("click", function(event){
 		event.preventDefault();
-		$("#nav__search-inner").toggleClass('active');
-		$("#nav__title").toggleClass("active");
-	});
+		$(this).toggleClass('active');
+		$("#menu").toggleClass('active');
+  });
 
   let slider = $("#slider");
   slider.slick({

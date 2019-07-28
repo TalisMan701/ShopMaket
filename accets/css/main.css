@@ -17,6 +17,14 @@ h1, h2, h3, h4, h5, h6{
   margin: 0;
 }
 
+.displayBlock{
+  display: block;
+}
+
+.displayNone{
+  display: none;
+}
+
 .btn{
   line-height: 2.3;
   padding: 0;
@@ -84,9 +92,10 @@ h1, h2, h3, h4, h5, h6{
   width: 100%;
   max-width: 220px;
   transform: all 0.3s ease;
+  animation: searchOut 1s;
 }
 
-.nav__search.active{
+.nav__search:hover{
   width: 100%;
   grid-column: span 2;
   display: flex;
@@ -95,7 +104,7 @@ h1, h2, h3, h4, h5, h6{
   flex-flow: row nowrap;
 }
 
-.nav__search.active form{
+.nav__search:hover form{
   width: 100%;
   display: flex;
   justify-content: space-around;
@@ -104,15 +113,39 @@ h1, h2, h3, h4, h5, h6{
   transform: all 0.3s ease;
 }
 
-.nav__search.active .nav__search-input{
-  display: block;
+@keyframes searchIn {
+  from{ 
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  to{ 
+    opacity: 1; 
+    transform: translateX(0px);
+  }
 }
 
-.nav__title.active{
+@keyframes searchOut {
+  from{ 
+    opacity: 1; 
+    transform: translateX(0px);
+  }
+  to{ 
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+}
+
+.nav__search:hover > form > .nav__search-input{
+  display: block;
+  animation: searchIn 0.5s ease-out;
+}
+
+.nav__search:hover ~ .nav__title{
   grid-column: span 5;
 }
 
 .nav__category-inner{
+  position: relative;
   grid-column: span 2;
   display: flex;
   flex-flow: row nowrap;
@@ -178,6 +211,50 @@ h1, h2, h3, h4, h5, h6{
   filter: drop-shadow(0px 0px 2px #FFB300);
   -webkit-filter: drop-shadow(0px 0px 2px #FFB300);
   transition: all 0.2s ease;
+}
+
+.menu{
+  animation: menuOut 1s;
+  display: none;
+  position: absolute;
+  height: 0px;
+  width: 100%;
+  max-width: 1500px;
+  top: 70px;
+  left: 0;
+  background-color: #3a54d6;
+}
+
+.menu.active{
+  animation: menuIn 1s;
+  height: 300px;
+  display: block;
+}
+
+@keyframes menuIn {
+  from{ 
+    opacity: 0;
+    height: 0px;
+    transform: translateY(-30px);
+  }
+  to{ 
+    opacity: 1; 
+    height: 300px;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes menuOut {
+  from{ 
+    opacity: 1; 
+    height: 300px;
+    transform: translateY(0px);
+  }
+  to{ 
+    opacity: 0;
+    height: 0px;
+    transform: translateY(-30px);
+  }
 }
 
 .nav__category-text{
@@ -1080,11 +1157,9 @@ h1, h2, h3, h4, h5, h6{
     grid-template-columns: 1fr 1fr;
   }
 
-  .social__item-reviews {
-    order: 1;
+  .social > div:nth-child(5),
+  .social > div:nth-child(7){
+    display: none;
   }
-
-  .content {
-    /* height: 6675px; */
-  }
+  
 }
