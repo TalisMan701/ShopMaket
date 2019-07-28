@@ -25,6 +25,14 @@ $(document).ready(function(){
     else return x;
   }
 
+  $(window).resize(function(){
+    heightContent = $('#main-content').height()-150;
+    $('#content').height(heightContent);
+    console.log (heightContent);
+  });
+
+  $(window).resize();
+
   $("#nav__search").on("click", function(event){
 		event.preventDefault();
 		$("#nav__search-inner").toggleClass('active');
@@ -50,8 +58,4 @@ $(document).ready(function(){
     prevArrow: '<button type="button" class="btn slick-prev"><svg><use xlink:href="#arrow"></use></svg></button>',
     nextArrow: '<button type="button" class="btn slick-next"><svg><use xlink:href="#arrow"></use></svg></button>'
   });
-
-  /* let heightMainContent = document.getElementById('#main-content').offsetHeight;
-  let newHeightContent = heightMainContent - 150;
-  document.getElementById('#main-content').style.height = newHeightContent + "px"; */
 });
