@@ -36,7 +36,16 @@ $(document).ready(function(){
   $("#hamburger").on("click", function(event){
 		event.preventDefault();
 		$(this).toggleClass('active');
-		$("#menu").toggleClass('active');
+/*     $("#menu").toggleClass('active'); */
+    if ($("#menu").hasClass('active')){
+      $("#menu").removeClass('active')
+      setTimeout(function(){
+        $("#menu").addClass('displayNone');
+      }, 800);
+    } else{
+      $("#menu").removeClass('displayNone');
+      $("#menu").addClass('active');
+    }
   });
 
   let slider = $("#slider");

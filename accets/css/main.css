@@ -18,11 +18,15 @@ h1, h2, h3, h4, h5, h6{
 }
 
 .displayBlock{
-  display: block;
+  display: block !important;
 }
 
 .displayNone{
-  display: none;
+  display: none !important;
+}
+
+.displayFlex{
+  display: flex !important;
 }
 
 .btn{
@@ -215,7 +219,6 @@ h1, h2, h3, h4, h5, h6{
 
 .menu{
   animation: menuOut 1s;
-  display: none;
   position: absolute;
   height: 0px;
   width: 100%;
@@ -223,12 +226,13 @@ h1, h2, h3, h4, h5, h6{
   top: 70px;
   left: 0;
   background-color: #3a54d6;
+  z-index: -1;
 }
 
 .menu.active{
   animation: menuIn 1s;
   height: 300px;
-  display: block;
+  z-index: 1;
 }
 
 @keyframes menuIn {
@@ -781,6 +785,7 @@ h1, h2, h3, h4, h5, h6{
 }
 
 .things__item{
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -793,11 +798,111 @@ h1, h2, h3, h4, h5, h6{
   padding: 0 10px;
 }
 
+.things__item-hover{
+  position: absolute;
+  padding: 13%;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 0%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  box-shadow: 0 5px 40px rgba(29, 52, 166, 0.55);
+  background-color: #3a54d6;
+  opacity: 0;
+  transition: opacity 1s ease,
+  height 0.8s ease;
+}
+
+.things__item:hover .things__item-hover{
+  opacity: 0.95;
+  height: 100%;
+}
+
+.things__item-hover-subtitle{
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1.8px;
+}
+
+.things__item-hover-btns{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+}
+
+.things__item-hover-btn-buy,
+.things__item-hover-btn-1,
+.things__item-hover-btn-2{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.things__item-hover-btn-buy{
+  width: 130px;
+  height: 50px;
+  border-radius: 50px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  background-color: #ffffff;
+}
+
+.things__item-hover-btn-buy{
+  color: #111111;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.things__item-hover-btn-buy svg{
+  width: 19px;
+  height: 19px;
+  fill: #111111;
+  margin-right: 5px;
+}
+
+.things__item-hover-btn-1,
+.things__item-hover-btn-2{
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.things__item-hover-btn-1 svg,
+.things__item-hover-btn-2 svg{
+  width: 19px;
+  height: 19px;
+  fill: #ffffff;
+}
+
+.things__item-hover-btn-buy:hover,
+.things__item-hover-btn-1:hover,
+.things__item-hover-btn-2:hover{
+  box-shadow: 0px 0px 16px #fff;
+}
+
 .things__item-img{
   width: 100%;
   max-width: 275px;
   height: 205px;
   margin-bottom: 29px;
+}
+
+.things__item-hover-title{
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 400;
+}
+
+.things__item-hover-price{
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
 }
 
 .things__item-title{
