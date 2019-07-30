@@ -26,9 +26,13 @@ $(document).ready(function(){
   }
 
   $(window).resize(function(){
-    heightContent = $('#main-content').height()-150;
-    $('#content').height(heightContent);
-    console.log (heightContent);
+    if ($(window).width() <= '1500'){
+      heightContent = $('#main-content').height()-75;
+      $('#content').height(heightContent);
+    }else{
+      heightContent = $('#main-content').height()-150;
+      $('#content').height(heightContent);
+    };
   });
 
   $(window).resize();
