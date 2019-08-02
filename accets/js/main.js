@@ -52,6 +52,19 @@ $(document).ready(function(){
     }
   });
 
+  $("#nav__search-icon").on("click", function(event){
+		event.preventDefault();
+    if ($("#nav__search-hover").hasClass('active')){
+      $("#nav__search-hover").removeClass('active')
+      setTimeout(function(){
+        $("#nav__search-hover").addClass('displayNone');
+      }, 800);
+    } else{
+      $("#nav__search-hover").removeClass('displayNone');
+      $("#nav__search-hover").addClass('active');
+    }
+  });
+
   let slider = $("#slider");
   slider.slick({
     infinite: true,
