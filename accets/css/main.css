@@ -77,6 +77,15 @@ h1, h2, h3, h4, h5, h6{
   align-items: center; */
   grid-auto-rows: 70px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  transition: all 0.5s ease;
+}
+
+.nav.fixed{
+  position: fixed;
+  top: auto;
+  left: auto;
+  margin: 0 auto;
+  background-color: #3a54d6;
 }
 
 .nav__search{
@@ -211,6 +220,7 @@ h1, h2, h3, h4, h5, h6{
   height: 3px;
   background-color: #FFB300;
   position: absolute;
+  z-index: 20;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -223,6 +233,7 @@ h1, h2, h3, h4, h5, h6{
   position: absolute;
   width: 28px;
   height: 3px;
+  z-index: 20;
   background-color: #FFB300;
 }
 
@@ -258,6 +269,7 @@ h1, h2, h3, h4, h5, h6{
 }
 
 .menu{
+  overflow: hidden;
   animation: menuOut 1s;
   position: absolute;
   height: 0px;
@@ -266,13 +278,12 @@ h1, h2, h3, h4, h5, h6{
   top: 70px;
   left: 0;
   background-color: #3a54d6;
-  z-index: -1;
+  z-index: 20;
 }
 
 .menu.active{
   animation: menuIn 1s;
   height: 300px;
-  z-index: 1;
 }
 
 @keyframes menuIn {
@@ -309,6 +320,21 @@ h1, h2, h3, h4, h5, h6{
 .nav__category-text span{
   font-size: 18px;
   font-weight: 500;
+}
+
+.hamburger-overlay{
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+}
+
+.nav__category-hamburger.active ~ .hamburger-overlay{
+  display: block;
+  background-color: #00000057;
 }
 
 .nav__title{
@@ -835,7 +861,6 @@ h1, h2, h3, h4, h5, h6{
   align-items: center;
   flex-flow: column nowrap; */
   background-color: #fff;
-  box-shadow: inset -1px -1px 0 #e6e6e6;
   width: 100%;
   /* max-width: 375px; */
   height: 375px;
@@ -869,6 +894,7 @@ h1, h2, h3, h4, h5, h6{
   align-items: center;
   flex-flow: column;
   padding: 0 10px;
+  box-shadow: inset -1px -1px 0 #e6e6e6;
 }
 
 .things__item-back{
