@@ -829,35 +829,59 @@ h1, h2, h3, h4, h5, h6{
 }
 
 .things__item{
-  position: relative;
+  /* position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-flow: column nowrap;
+  flex-flow: column nowrap; */
   background-color: #fff;
   box-shadow: inset -1px -1px 0 #e6e6e6;
   width: 100%;
   /* max-width: 375px; */
   height: 375px;
+  perspective: 1000px;
+}
+
+.things__item-inner{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s ease;
+  transform-style: preserve-3d;
+}
+
+.things__item:hover .things__item-inner{
+  transform: rotateY(180deg);
+}
+
+.things__item-front,
+.things__item-back{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.things__item-front{
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
   padding: 0 10px;
 }
 
-.things__item-hover{
-  overflow: hidden;
-  position: absolute;
-  padding: 0;
-  top: 0;
-  right: 0;
-  width: 100%;
-  height: 0%;
+.things__item-back{
+  padding: 13%;
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-between;
   box-shadow: 0 5px 40px rgba(29, 52, 166, 0.55);
   background-color: #3a54d6;
-  opacity: 0;
+  opacity: 0.95;
   transition: opacity 0.8s ease,
   height 0.6s ease, padding 0.6s ease;
+  transform: rotateY(180deg);
 }
 
 .things__item:hover .things__item-hover{
