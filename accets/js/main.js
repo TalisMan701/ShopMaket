@@ -148,6 +148,42 @@ $(document).ready(function(){
     }
   });
 
+  $(".catalog__sidebar-header--categories").on("click", function(event){
+		event.preventDefault();
+    $(".catalog__sidebar-body--categories").toggleClass('displayNone');
+    $(".catalog__sidebar-categories").toggleClass('active');
+    $(".catalog__sidebar-header--categories").toggleClass('active');
+  });
+
+  $(".catalog__sidebar-header--price").on("click", function(event){
+		event.preventDefault();
+    $(".catalog__sidebar-body--price").toggleClass('displayNone');
+    $(".catalog__sidebar-price").toggleClass('active');
+    $(".catalog__sidebar-header--price").toggleClass('active');
+  });
+
+  $(".catalog__sidebar-header--brand").on("click", function(event){
+		event.preventDefault();
+    $(".catalog__sidebar-body--brand").toggleClass('displayNone');
+    $(".catalog__sidebar-brand").toggleClass('active');
+    $(".catalog__sidebar-header--brand").toggleClass('active');
+  });
+
+  $(".catalog__sidebar-header--color").on("click", function(event){
+		event.preventDefault();
+    $(".catalog__sidebar-body--color").toggleClass('displayNone');
+    $(".catalog__sidebar-color").toggleClass('active');
+    $(".catalog__sidebar-header--color").toggleClass('active');
+  });
+
+  $(".catalog__sidebar-header--size").on("click", function(event){
+		event.preventDefault();
+    $(".catalog__sidebar-body--size").toggleClass('displayNone');
+    $(".catalog__sidebar-size").toggleClass('active');
+    $(".catalog__sidebar-header--size").toggleClass('active');
+  });
+
+
   let slider = $("#slider");
   slider.slick({
     infinite: true,

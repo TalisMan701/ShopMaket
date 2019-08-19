@@ -1404,15 +1404,17 @@ h1, h2, h3, h4, h5, h6{
 
 .catalog__titles__sort,
 .catalog__titles__show{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  position: relative;
+  display: inline-block;
+  /* justify-content: space-between;
+  align-items: center; */
   box-shadow: inset -1px -1px 0 #e6e6e6; 
 }
 
 .catalog__titles__sort-title,
 .catalog__titles__show-title{
   width: 100%;
+  height: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1492,6 +1494,40 @@ h1, h2, h3, h4, h5, h6{
   border-radius: 50%;
 }
 
+.catalog__titles__sort-items,
+.catalog__titles__show-items{
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column nowrap;
+  position: absolute;
+  width: 100%;
+  z-index: 5;
+  background-color: #fff;
+  box-shadow: inset -1px 0 0 #e6e6e6;
+}
+
+.catalog__titles__sort-item,
+.catalog__titles__show-item{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  color: #111111;
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  padding: 10px 0;
+  box-shadow: inset 0 -1px 0 #e6e6e6;
+  cursor: pointer;
+}
+
+.catalog__titles__sort:hover .catalog__titles__sort-items,
+.catalog__titles__show:hover .catalog__titles__show-items{
+  display: flex;
+}
+
 /* sidebar */
 
 .catalog__sidebar{
@@ -1514,10 +1550,14 @@ h1, h2, h3, h4, h5, h6{
 .catalog__sidebar-arrow-down{
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(-50%) rotate(-180deg);
   left: 33px;
   color: #111111;
   font-size: 12px;
+}
+
+.catalog__sidebar-header.active .catalog__sidebar-arrow-down{
+  transform: translateY(-50%) rotate(0deg);
 }
 
 .catalog__sidebar-title{
@@ -1586,10 +1626,14 @@ h1, h2, h3, h4, h5, h6{
 .catalog__sidebar-brand,
 .catalog__sidebar-color{
   box-shadow: inset 0 -1px 0 #e6e6e6;
-  padding-bottom: 30px;
+  /* padding-bottom: 30px; */
 }
 
-.catalog__sidebar-size{
+.catalog__sidebar-categories.active,
+.catalog__sidebar-price.active,
+.catalog__sidebar-brand.active,
+.catalog__sidebar-color.active,
+.catalog__sidebar-size.active{
   padding-bottom: 30px;
 }
 
@@ -1737,7 +1781,7 @@ h1, h2, h3, h4, h5, h6{
 
 /* color */
 
-.catalog__sidebar-body-color{
+.catalog__sidebar-body--color{
   display: flex;
   justify-content: space-between;
   align-items: center;
